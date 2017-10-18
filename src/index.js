@@ -9,5 +9,7 @@ import 'bootstrap/dist/css/bootstrap-theme.css';
 
 import 'font-awesome/css/font-awesome.css';
 
+import 'froala-design-blocks/dist/css/froala_blocks.css'
+
 ReactDOM.render(<App />, document.getElementById('root'));
 registerServiceWorker();

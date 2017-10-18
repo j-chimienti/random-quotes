@@ -9,8 +9,6 @@ import _ from 'lodash';
 class App extends React.Component {
 
 
-
-
     constructor(props) {
 
         super();
@@ -57,7 +55,6 @@ class App extends React.Component {
         let newQuote_ = this.randomQuote();
 
 
-
         while (updatedHistory
             .slice(-5)
             .find(h => h === newQuote_)) {
@@ -81,23 +78,41 @@ class App extends React.Component {
 
     render() {
         return (
-            <div className={this.state.backgroundGradient + ' app'}
+            <div className={this.state.backgroundGradient + ' app text-center container-fluid'}
 
             >
 
-                <p>
-                    {this.state.currentQuote.quote}
-                </p>
-                <p>
-                    {this.state.currentQuote.author}
-                </p>
-                <p>
-                    <button
-                        className={'btn'}
-                        onClick={this.newQuote}
-                    >new quote
-                    </button>
-                </p>
+                <section className="fdb-block">
+                    <div className="container">
+                        <div className="row justify-content-center">
+                            <div className="col-12 col-md-8 text-center">
+                                <p className="text-h2">
+
+                                    {this.state.currentQuote.quote}
+
+
+                                </p>
+
+                                <p
+                                    className={'text-h3'}
+                                >
+                                    {this.state.currentQuote.author}
+                                </p>
+
+                                <p className="mt-5 mt-sm-4">
+                                    <button
+                                        className={'btn'}
+                                        onClick={this.newQuote}
+                                    >
+
+                                        new quote
+                                    </button>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
             </div>
         );
     }
