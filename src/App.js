@@ -1,10 +1,13 @@
 import React, {Component} from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 import {quotes, backgroundClasses} from './quotes';
 
-import _ from 'lodash';
+import sample from 'lodash/sample';
+
+
+import {Button, Grid, Panel, Row} from 'react-bootstrap'
+
 
 class App extends React.Component {
 
@@ -15,103 +18,119 @@ class App extends React.Component {
 
         this.state = {
             quotes,
-            currentQuote: _.sample(quotes),
+            currentQuote: sample(quotes),
             history: [],
-            backgroundGradient: _.sample(backgroundClasses),
+            backgroundGradient: sample(backgroundClasses),
         };
 
-        this.changeBackground = this.changeBackground.bind(this);
         this.newQuote = this.newQuote.bind(this);
-        this.newBackground = this.newBackground.bind(this);
-        this.randomQuote = this.randomQuote.bind(this);
 
     }
 
-    changeBackground() {
+    componentDidMount() {
 
-        let newGradient = this.newBackground();
-
-        while (this.state.backgroundGradient === newGradient) {
-
-            newGradient = this.newBackground();
-        }
+        document.addEventListener('keydown', (e) => {
 
 
-        this.setState({
-            backgroundGradient: newGradient,
+            // keyCode or which
+
+            if (e.keyCode === 39) {
+
+                this.newQuote();
+            }
         })
     }
 
-    newBackground() {
-
-        return _.sample(backgroundClasses);
-    }
 
     newQuote() {
 
 
-        const updatedHistory = [...this.state.history, this.state.currentQuote];
+        const {
+            history,
+            currentQuote,
+            quotes,
+            backgroundGradient
+        } = this.state;
 
-        let newQuote_ = this.randomQuote();
+        const updatedHistory = [...history, currentQuote];
+
+        let newQuote_ = sample(quotes);
 
 
         while (updatedHistory
             .slice(-5)
             .find(h => h === newQuote_)) {
 
-            newQuote_ = this.randomQuote();
+            newQuote_ = sample(quotes);
         }
 
+
+        const newGradient = changeBackground();
 
         this.setState({
             ...this.state,
             currentQuote: newQuote_,
             history: updatedHistory,
+            backgroundGradient: newGradient,
         });
-        this.changeBackground();
+
+        function changeBackground() {
+
+            let newGradient = newBackground();
+
+            while (backgroundGradient === newGradient) {
+
+                newGradient = newBackground();
+            }
+
+            return newGradient;
+
+            function newBackground() {
+
+                return sample(backgroundClasses);
+            }
+
+        }
+
+
     }
 
-    randomQuote() {
-
-        return _.sample(this.state.quotes);
-    }
 
     render() {
+
+        const {backgroundGradient, currentQuote: {quote, author}} = this.state;
+
+        const author_ = <span>
+            <i className={'fa fa-pencil'}></i>
+            {' '}
+            {author}
+        </span>
         return (
-            <div className={this.state.backgroundGradient + ' app text-center container-fluid'}
+            <div className={backgroundGradient + ' app text-center container-fluid'}
 
             >
 
-                <section className="fdb-block">
-                    <div className="container">
-                        <div className="row justify-content-center">
-                            <div className="col-12 col-md-8 text-center">
-                                <p className="text-h2">
+                <Grid>
+                    <Row className={'quote_display'}>
+                        <Panel header={author_}>
 
-                                    {this.state.currentQuote.quote}
+                            <i className={'fa fa-quote-left'}></i>
+                            {' '}
+                            {quote}
+                        </Panel>
+                    </Row>
+                </Grid>
 
 
-                                </p>
+                <Button
+                    bsStyle={'primary'}
+                    bsSize={'large'}
+                    onClick={this.newQuote}
+                    className={"new_quote_btn"}
+                >
 
-                                <p
-                                    className={'text-h3'}
-                                >
-                                    {this.state.currentQuote.author}
-                                </p>
-
-                                <p className="mt-5 mt-sm-4">
-                                    <button
-                                        className={'btn'}
-                                        onClick={this.newQuote}
-                                    >
-
-                                        new quote
-                                    </button>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+                    <i className={'fa fa-arrow-right fa-2x'}></i>
+                </Button>
 
             </div>
         );
