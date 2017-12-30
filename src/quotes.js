@@ -1,13 +1,28 @@
 export const quotes = [
 
-    {quote: 'We may make contact with ambitious species on other planets or stars; soon thereafter there will be interplanetary war. Then, and only then, we will of this earth be one', author: 'Will Durant'},
+    {
+        quote: 'We may make contact with ambitious species on other planets or stars; soon thereafter there will be interplanetary war. Then, and only then, we will of this earth be one',
+        author: 'Will Durant'
+    },
 
     {quote: 'We are punished by our sins, not for them', author: 'Elbert Hubbard'},
-    {quote: 'If you\'ve never vomited from doing a set of barbell curls, then you\'ve never experienced outright hard work', author: 'Arthur Jones'},
-    {quote: 'Michael, I did nothing. I did absolutely nothing, and it was everything I thought it could be.', author: 'Peter Gibbons, Office Space'},
-    {quote: 'If a law is unjust, a man is not only right to disobey it, he is obliged to do so', author: 'Thomas Jefferson'},
+    {
+        quote: 'If you\'ve never vomited from doing a set of barbell curls, then you\'ve never experienced outright hard work',
+        author: 'Arthur Jones'
+    },
+    {
+        quote: 'Michael, I did nothing. I did absolutely nothing, and it was everything I thought it could be.',
+        author: 'Peter Gibbons, Office Space'
+    },
+    {
+        quote: 'If a law is unjust, a man is not only right to disobey it, he is obliged to do so',
+        author: 'Thomas Jefferson'
+    },
     {quote: 'He suffers more than neccessary, who suffers before it is neccessary', author: 'Seneca'},
-    {quote: 'There will come a time when you believe everthing is finished. That will be the beginning', author: 'Louis L\'Amour'},
+    {
+        quote: 'There will come a time when you believe everthing is finished. That will be the beginning',
+        author: 'Louis L\'Amour'
+    },
     {quote: 'Education is not preperation for life, education is life itself', author: 'John Dewey'},
     {
         quote:
@@ -320,6 +335,10 @@ export const quotes = [
         quote:
             "All courses of action are risky, so prudence is not in avoiding danger (it’s impossible), but calculating risk and acting decisively. Make mistakes of ambition and not mistakes of sloth. Develop the strength to do bold things, not the strength to suffer.",
         author: "Niccolo Machiavelli, The Prince"
+    },
+    {
+        quote: 'Have you ever noticed when you\'re driving that anybody driving slower than you is an idiot, and anyone going faster than you is a maniac?',
+        author: "George Carlin"
     }
 ];
 

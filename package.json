@@ -1,8 +1,8 @@
 {
   "name": "random-quotes",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
-  "homepage": "https://jchimienti89.github.io/random-quotes",
+  "homepage": "https://j-chimienti.github.io/random-quotes",
   "dependencies": {
     "bootstrap": "^3.3.7",
     "font-awesome": "^4.7.0",
