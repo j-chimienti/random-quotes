@@ -2,7 +2,7 @@
   "name": "random-quotes",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://jchimienti89.github.io/random-quotes",
+  "homepage": "https://randomquotes.jchimienti.com",
   "dependencies": {
     "bootstrap": "^3.3.7",
     "font-awesome": "^4.7.0",
